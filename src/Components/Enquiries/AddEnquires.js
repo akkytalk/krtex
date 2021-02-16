@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import * as actions from "../../../reduxStore/actions/index";
+import * as actions from "../../reduxStore/actions/index";
 import { connect } from "react-redux";
 import {
   Card,
@@ -18,9 +18,9 @@ import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import Link from "@material-ui/core/Link";
-import Sidebar from "../../Home/Sidebar";
+import Sidebar from "../Home/Sidebar";
 
-function Product(props) {
+function AddEnquires(props) {
   useEffect(() => {
     console.log("currentUser data from redux ", currentUser);
 
@@ -32,11 +32,14 @@ function Product(props) {
 
   const [user, setUser] = useState({
     name: "",
-    units: "",
-    rate: "",
-    quantity: "",
-    hsn_code: "",
-    net_qunatity: "",
+    email: "",
+    contact: "",
+    reference: "",
+    requirement: "",
+    address: "",
+    city: "",
+    state: "",
+    pincode: "",
     status: "",
   });
 
@@ -45,11 +48,11 @@ function Product(props) {
   const initialFormState = {
     id: "",
     name: "",
-    units: "",
-    rate: "",
-    quantity: "",
-    hsn_code: "",
-    net_qunatity: "",
+    email: "",
+    contact: "",
+    reference: "",
+    requirement: "",
+    address: "",
     status: "",
   };
 
@@ -95,9 +98,8 @@ function Product(props) {
                 <Link color="inherit" href="/">
                   Home
                 </Link>
-                <Link color="inherit">Master</Link>
 
-                <Typography color="textPrimary">Product</Typography>
+                <Typography color="textPrimary">Enquiries Page</Typography>
               </Breadcrumbs>
             </li>
           </ul>
@@ -111,17 +113,17 @@ function Product(props) {
           <section className="content">
             <div className="container-fluid">
               <Card>
-                <CardHeader className="bg-info text-white">
-                  <strong>Product</strong>
-                  <Button className="btn-success  float-right" onClick={toggle}>
-                    Add Product
+                <CardHeader className="bg-primary text-white">
+                  <strong>Enquiries</strong>
+                  <Button className="btn-success float-right" onClick={toggle}>
+                    Add Enquiries
                   </Button>
                   <Modal
                     className="modal-info modal-lg"
                     isOpen={modal}
                     toggle={toggle}
                   >
-                    <ModalHeader toggle={toggle}>Add New Product</ModalHeader>
+                    <ModalHeader toggle={toggle}>Add New Enquiries</ModalHeader>
                     <ModalBody>
                       <form
                         onSubmit={(event) => {
@@ -148,14 +150,14 @@ function Product(props) {
                           </div>
 
                           <div className="form-group col-md-6">
-                            <label htmlFor="inputPassword4"> Units </label>
+                            <label htmlFor="inputPassword4"> Email </label>
                             <input
-                              type="text"
+                              type="email"
                               className="form-control"
                               id="inputPassword4"
                               placeholder=""
-                              value={!editing ? user.units : currentUser.units}
-                              name="units"
+                              value={!editing ? user.email : currentUser.email}
+                              name="email"
                               onChange={
                                 editing
                                   ? currentUserInputChange
@@ -165,33 +167,16 @@ function Product(props) {
                           </div>
 
                           <div className="form-group col-md-6">
-                            <label htmlFor="inputPassword4">Rate</label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="inputPassword4"
-                              placeholder=""
-                              value={!editing ? user.rate : currentUser.rate}
-                              name="rate"
-                              onChange={
-                                editing
-                                  ? currentUserInputChange
-                                  : handleInputChange
-                              }
-                            />
-                          </div>
-
-                          <div className="form-group col-md-6">
-                            <label htmlFor="inputPassword4"> Quantity </label>
+                            <label htmlFor="inputPassword4"> Contact No</label>
                             <input
                               type="text"
                               className="form-control"
                               id="inputPassword4"
                               placeholder=""
                               value={
-                                !editing ? user.quantity : currentUser.quantity
+                                !editing ? user.contact : currentUser.contact
                               }
-                              name="quantity"
+                              name="contact"
                               onChange={
                                 editing
                                   ? currentUserInputChange
@@ -201,16 +186,18 @@ function Product(props) {
                           </div>
 
                           <div className="form-group col-md-6">
-                            <label htmlFor="inputPassword4"> HSN Code </label>
+                            <label htmlFor="inputPassword4"> Reference </label>
                             <input
                               type="text"
                               className="form-control"
                               id="inputPassword4"
                               placeholder=""
                               value={
-                                !editing ? user.hsn_code : currentUser.hsn_code
+                                !editing
+                                  ? user.reference
+                                  : currentUser.reference
                               }
-                              name="hsn_code"
+                              name="reference"
                               onChange={
                                 editing
                                   ? currentUserInputChange
@@ -222,7 +209,7 @@ function Product(props) {
                           <div className="form-group col-md-6">
                             <label htmlFor="inputPassword4">
                               {" "}
-                              Net Quantity{" "}
+                              Requirement{" "}
                             </label>
                             <input
                               type="text"
@@ -231,10 +218,82 @@ function Product(props) {
                               placeholder=""
                               value={
                                 !editing
-                                  ? user.net_qunatity
-                                  : currentUser.net_qunatity
+                                  ? user.requirement
+                                  : currentUser.requirement
                               }
-                              name="net_qunatity"
+                              name="requirement"
+                              onChange={
+                                editing
+                                  ? currentUserInputChange
+                                  : handleInputChange
+                              }
+                            />
+                          </div>
+
+                          <div className="form-group col-md-6">
+                            <label htmlFor="inputPassword4"> Address </label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              id="inputPassword4"
+                              placeholder=""
+                              value={
+                                !editing ? user.address : currentUser.address
+                              }
+                              name="address"
+                              onChange={
+                                editing
+                                  ? currentUserInputChange
+                                  : handleInputChange
+                              }
+                            />
+                          </div>
+
+                          <div className="form-group col-md-6">
+                            <label htmlFor="inputPassword4"> City </label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              id="inputPassword4"
+                              placeholder=""
+                              value={!editing ? user.city : currentUser.city}
+                              name="city"
+                              onChange={
+                                editing
+                                  ? currentUserInputChange
+                                  : handleInputChange
+                              }
+                            />
+                          </div>
+
+                          <div className="form-group col-md-6">
+                            <label htmlFor="inputPassword4"> state </label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              id="inputPassword4"
+                              placeholder=""
+                              value={!editing ? user.state : currentUser.state}
+                              name="state"
+                              onChange={
+                                editing
+                                  ? currentUserInputChange
+                                  : handleInputChange
+                              }
+                            />
+                          </div>
+
+                          <div className="form-group col-md-6">
+                            <label htmlFor="inputPassword4"> pincode </label>
+                            <input
+                              type="number"
+                              className="form-control"
+                              id="inputPassword4"
+                              placeholder=""
+                              value={
+                                !editing ? user.pincode : currentUser.pincode
+                              }
+                              name="pincode"
                               onChange={
                                 editing
                                   ? currentUserInputChange
@@ -318,9 +377,9 @@ function Product(props) {
                       <tr>
                         {/* <th>ID</th> */}
                         <th scope="col">Name</th>
-                        <th scope="col">Units</th>
-                        <th scope="col">Rate</th>
-                        <th scope="col">Quantity</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact No</th>
+                        <th scope="col">Reference</th>
                         <th scope="col">Status</th>
 
                         <th scope="col">Actions</th>
@@ -436,4 +495,4 @@ const mapDispatchToProps = (dispatch) => {
       ),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default connect(mapStateToProps, mapDispatchToProps)(AddEnquires);

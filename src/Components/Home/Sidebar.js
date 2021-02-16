@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
-
-
 function Sidebar() {
- 
-
   return (
     <Fragment>
       {/* Main Sidebar Container */}
@@ -18,7 +14,7 @@ function Sidebar() {
         {/* Sidebar */}
         <div
           className="sidebar"
-          style={{ paddingRight: "0px;", fontSize: "15px" }} 
+          style={{ paddingRight: "0px;", fontSize: "15px" }}
         >
           {/* Sidebar user panel (optional) */}
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -73,10 +69,7 @@ function Sidebar() {
                       className="nav-link d-flex justify-content-between"
                     >
                       <p>Customer</p>
-                      
                     </Link>
-
-                    
                   </li>
                   <li className="nav-item">
                     <Link
@@ -84,11 +77,9 @@ function Sidebar() {
                       className="nav-link d-flex justify-content-between"
                     >
                       <p>Vendor</p>
-                      
                     </Link>
-                    
                   </li>
-                  
+
                   <li className="nav-item">
                     <Link to="/product" exact className="nav-link">
                       <p>Product</p>
@@ -105,7 +96,6 @@ function Sidebar() {
                       <p>LC Master</p>
                     </Link>
                   </li>
-                  
                 </ul>
               </li>
 
@@ -127,6 +117,17 @@ function Sidebar() {
                 </Link>
               </li>
 
+              <li className="nav-item">
+                <Link to="/payment-detail" className="nav-link">
+                  <p>Payment Detail</p>
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link to="/statistics" className="nav-link">
+                  <p>Statistics</p>
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>

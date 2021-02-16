@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import * as actions from "../../../reduxStore/actions/index";
+import * as actions from "../../reduxStore/actions/index";
 import { connect } from "react-redux";
 import {
   Card,
@@ -18,9 +18,9 @@ import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import Link from "@material-ui/core/Link";
-import Sidebar from "../../Home/Sidebar";
+import Sidebar from "../Home/Sidebar";
 
-function Product(props) {
+function PaymentDetail(props) {
   useEffect(() => {
     console.log("currentUser data from redux ", currentUser);
 
@@ -32,24 +32,15 @@ function Product(props) {
 
   const [user, setUser] = useState({
     name: "",
-    units: "",
-    rate: "",
-    quantity: "",
-    hsn_code: "",
-    net_qunatity: "",
+    file: "",
     status: "",
   });
 
   const [editing, setEditing] = useState(false);
 
   const initialFormState = {
-    id: "",
     name: "",
-    units: "",
-    rate: "",
-    quantity: "",
-    hsn_code: "",
-    net_qunatity: "",
+    file: "",
     status: "",
   };
 
@@ -95,9 +86,8 @@ function Product(props) {
                 <Link color="inherit" href="/">
                   Home
                 </Link>
-                <Link color="inherit">Master</Link>
 
-                <Typography color="textPrimary">Product</Typography>
+                <Typography color="textPrimary">Payment Detail</Typography>
               </Breadcrumbs>
             </li>
           </ul>
@@ -111,17 +101,19 @@ function Product(props) {
           <section className="content">
             <div className="container-fluid">
               <Card>
-                <CardHeader className="bg-info text-white">
-                  <strong>Product</strong>
+                <CardHeader className="bg-warning text-white">
+                  <strong>Payment Detail</strong>
                   <Button className="btn-success  float-right" onClick={toggle}>
-                    Add Product
+                    Add Payment Detail
                   </Button>
                   <Modal
                     className="modal-info modal-lg"
                     isOpen={modal}
                     toggle={toggle}
                   >
-                    <ModalHeader toggle={toggle}>Add New Product</ModalHeader>
+                    <ModalHeader toggle={toggle}>
+                      Add New Payment Detail
+                    </ModalHeader>
                     <ModalBody>
                       <form
                         onSubmit={(event) => {
@@ -131,7 +123,10 @@ function Product(props) {
                       >
                         <div className="form-row" style={{ fontSize: "12px" }}>
                           <div className="form-group col-md-6">
-                            <label htmlFor="inputPassword4"> Name </label>
+                            <label htmlFor="inputPassword4">
+                              {" "}
+                              Payment Detail{" "}
+                            </label>
                             <input
                               type="text"
                               className="form-control"
@@ -147,103 +142,28 @@ function Product(props) {
                             />
                           </div>
 
-                          <div className="form-group col-md-6">
-                            <label htmlFor="inputPassword4"> Units </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="inputPassword4"
-                              placeholder=""
-                              value={!editing ? user.units : currentUser.units}
-                              name="units"
-                              onChange={
-                                editing
-                                  ? currentUserInputChange
-                                  : handleInputChange
-                              }
-                            />
-                          </div>
-
-                          <div className="form-group col-md-6">
-                            <label htmlFor="inputPassword4">Rate</label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="inputPassword4"
-                              placeholder=""
-                              value={!editing ? user.rate : currentUser.rate}
-                              name="rate"
-                              onChange={
-                                editing
-                                  ? currentUserInputChange
-                                  : handleInputChange
-                              }
-                            />
-                          </div>
-
-                          <div className="form-group col-md-6">
-                            <label htmlFor="inputPassword4"> Quantity </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="inputPassword4"
-                              placeholder=""
-                              value={
-                                !editing ? user.quantity : currentUser.quantity
-                              }
-                              name="quantity"
-                              onChange={
-                                editing
-                                  ? currentUserInputChange
-                                  : handleInputChange
-                              }
-                            />
-                          </div>
-
-                          <div className="form-group col-md-6">
-                            <label htmlFor="inputPassword4"> HSN Code </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="inputPassword4"
-                              placeholder=""
-                              value={
-                                !editing ? user.hsn_code : currentUser.hsn_code
-                              }
-                              name="hsn_code"
-                              onChange={
-                                editing
-                                  ? currentUserInputChange
-                                  : handleInputChange
-                              }
-                            />
-                          </div>
-
-                          <div className="form-group col-md-6">
+                          {/* <div className="form-group col-md-6">
                             <label htmlFor="inputPassword4">
                               {" "}
-                              Net Quantity{" "}
+                              File Upload{" "}
                             </label>
                             <input
-                              type="text"
+                              type="file"
                               className="form-control"
+                              style={{ border: "none" }}
                               id="inputPassword4"
                               placeholder=""
-                              value={
-                                !editing
-                                  ? user.net_qunatity
-                                  : currentUser.net_qunatity
-                              }
-                              name="net_qunatity"
+                              value={!editing ? user.file : currentUser.file}
+                              name="file"
                               onChange={
                                 editing
                                   ? currentUserInputChange
                                   : handleInputChange
                               }
                             />
-                          </div>
+                          </div> */}
 
-                          <div className="form-group col-md-6">
+                          {/* <div className="form-group col-md-6">
                             <label htmlFor="inputPassword4"> Status </label>
                             <select
                               type="text"
@@ -258,10 +178,10 @@ function Product(props) {
                               }
                             >
                               <option>select</option>
-                              <option value="1">active</option>
-                              <option value="0">inactive</option>
+                              <option value={1}>active</option>
+                              <option value={0}>inactive</option>
                             </select>
-                          </div>
+                          </div> */}
 
                           <div className="form-group col-md-12 mt-4">
                             {!editing ? (
@@ -318,9 +238,9 @@ function Product(props) {
                       <tr>
                         {/* <th>ID</th> */}
                         <th scope="col">Name</th>
-                        <th scope="col">Units</th>
-                        <th scope="col">Rate</th>
-                        <th scope="col">Quantity</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact No</th>
+
                         <th scope="col">Status</th>
 
                         <th scope="col">Actions</th>
@@ -436,4 +356,4 @@ const mapDispatchToProps = (dispatch) => {
       ),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default connect(mapStateToProps, mapDispatchToProps)(PaymentDetail);

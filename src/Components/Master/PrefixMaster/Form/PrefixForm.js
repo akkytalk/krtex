@@ -43,7 +43,6 @@ function PrefixForm(props) {
     setUser({ ...user, [name]: value });
   };
 
-
   console.log("User data from redux and prefix Form ", currentUser);
 
   return (
@@ -52,7 +51,7 @@ function PrefixForm(props) {
         {/* Navbar */}
         <nav className="main-header navbar navbar-expand navbar-white navbar-light">
           {/* Left navbar links */}
-          <ul  className="navbar-nav d-flex align-items-center">
+          <ul className="navbar-nav d-flex align-items-center">
             <li className="nav-item">
               <a
                 className="nav-link"
@@ -68,16 +67,10 @@ function PrefixForm(props) {
                 separator={<NavigateNextIcon fontSize="small" />}
                 aria-label="breadcrumb"
               >
-                <Link color="inherit" href="/" >
+                <Link color="inherit" href="/">
                   Home
                 </Link>
-                <Link
-                  color="inherit"
-                  
-                  
-                >
-                  Master
-                </Link>
+                <Link color="inherit">Master</Link>
                 <Typography color="textPrimary">Form Name Master</Typography>
               </Breadcrumbs>
             </li>
@@ -127,22 +120,6 @@ function PrefixForm(props) {
                                 {dep.name}
                               </option>
                             ))}
-                            {/* {!editing
-                              ? props.department?.map((dep) => (
-                                  <option key={dep.id} value={dep.id}>
-                                    {dep.name}
-                                  </option>
-                                ))
-                              : currentUser
-                              ? // (
-                                //     <option>{currentUser.department_name}</option>
-                                //   ) &&
-                                props.department?.map((dep) => (
-                                  <option key={dep.id} value={dep.id}>
-                                    {dep.name}
-                                  </option>
-                                ))
-                              : null} */}
                           </select>
                         </div>
 
