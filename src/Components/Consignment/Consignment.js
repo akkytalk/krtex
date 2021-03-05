@@ -249,31 +249,31 @@ function Consignment(props) {
                                 </Col>
                               </Row>
                             ) : (
-                              <div className="d-flex">
-                                <button
-                                  className="btn btn-success"
-                                  type="button"
-                                  onClick={() =>
-                                    props.onUpdateAccountGroupData(
-                                      currentUser.id,
-                                      editing,
-                                      setEditing,
-                                      currentUser,
-                                      setCurrentUser
-                                    )
-                                  }
-                                >
-                                  Update
+                                <div className="d-flex">
+                                  <button
+                                    className="btn btn-success"
+                                    type="button"
+                                    onClick={() =>
+                                      props.onUpdateAccountGroupData(
+                                        currentUser.id,
+                                        editing,
+                                        setEditing,
+                                        currentUser,
+                                        setCurrentUser
+                                      )
+                                    }
+                                  >
+                                    Update
                                 </button>
-                                <button
-                                  className="btn btn-primary ml-3"
-                                  type="button"
-                                  onClick={() => setEditing(false)}
-                                >
-                                  Cancel
+                                  <button
+                                    className="btn btn-primary ml-3"
+                                    type="button"
+                                    onClick={() => setEditing(false)}
+                                  >
+                                    Cancel
                                 </button>
-                              </div>
-                            )}
+                                </div>
+                              )}
                           </div>
                         </div>
                       </form>
@@ -345,10 +345,10 @@ function Consignment(props) {
                           </tr>
                         ))
                       ) : (
-                        <tr>
-                          <td colSpan={3}>No users</td>
-                        </tr>
-                      )}
+                          <tr>
+                            <td colSpan={3}>No users</td>
+                          </tr>
+                        )}
                     </tbody>
                   </table>
                 </CardBody>

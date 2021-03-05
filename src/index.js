@@ -14,6 +14,7 @@ import itemGroupReducer from "./reduxStore/reducers/RItemGroup";
 import itemNameReducer from "./reduxStore/reducers/RItemName";
 import itemUnitsReducer from "./reduxStore/reducers/RItemUnits";
 import userMasterReducer from "./reduxStore/reducers/RAddUserMaster";
+import timelineReducer from './reduxStore/reducers/RTimelineStatic';
 
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   itemGroup: itemGroupReducer,
   itemUnits: itemUnitsReducer,
   userMaster: userMasterReducer,
+  timelineUsers: timelineReducer,
 });
 
 const store = createStore(

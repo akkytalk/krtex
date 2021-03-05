@@ -15,6 +15,7 @@ import PaymentDetail from "./Components/PaymentDetail/PaymentDetail";
 import PerformaInvoice from "./Components/PerformaInvoice/PerformaInvoice";
 import PurchaseOrder from "./Components/PurchaseOrder/PurchaseOrder";
 import Statistics from "./Components/Statistics/Statistics";
+import TimeLine from "./Components/TimeLine/TimeLine.js";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/purchase-order" component={PurchaseOrder} />
           <Route path="/statistics" component={Statistics} />
           <Route path="/payment-detail" component={PaymentDetail} />
+          <Route path="/timeline" component={TimeLine} />
         </Switch>
       </Router>
     </Fragment>
